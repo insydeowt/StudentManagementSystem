@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentmanagementsystem.controller.StudentController">
+    <VBox>
+        <Button text="Add Student" onAction="#handleAddStudent" fx:id="addStudentButton"/>
+        <Button text="Update Student" onAction="#handleUpdateStudent" fx:id="updateStudentButton"/>
+        <Button text="View Student" onAction="#handleViewStudent" fx:id="viewStudentButton"/>
+    </VBox>
+</AnchorPane>

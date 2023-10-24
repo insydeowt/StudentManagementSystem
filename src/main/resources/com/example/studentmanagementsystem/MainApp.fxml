@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentmanagementsystem.controller.MainController">
+    <TableView fx:id="studentTable" layoutX="20" layoutY="20" prefHeight="400" prefWidth="600">
+        <columns>
+            <TableColumn text="Name" fx:id="nameColumn" prefWidth="150" />
+            <TableColumn text="ID" fx:id="idColumn" prefWidth="150" />
+            <TableColumn text="Age" fx:id="ageColumn" prefWidth="150" />
+            <TableColumn text="Grade" fx:id="gradeColumn" prefWidth="150" />
+        </columns>
+    </TableView>
+    <HBox layoutX="20" layoutY="430" spacing="10">
+        <Button text="Add Student" onAction="#handleAddStudentButtonAction" />
+        <Button text="Update Student" onAction="#handleUpdateStudentButtonAction" />
+        <Button text="View Student Details" onAction="#handleViewStudentDetailsButtonAction" />
+    </HBox>
+</AnchorPane>
