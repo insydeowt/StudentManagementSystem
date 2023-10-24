@@ -57,5 +57,6 @@ public class AddStudentController {
 
 
     public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
     }
 }
