@@ -4,9 +4,17 @@ import com.example.studentmanagementsystem.model.Student;
 import com.example.studentmanagementsystem.model.StudentManagement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class MainController {
 
@@ -22,6 +30,7 @@ public class MainController {
     private TableColumn<Student, String> gradeColumn;
 
     private ObservableList<Student> studentData = FXCollections.observableArrayList();
+    private Stage primaryStage;
 
     @FXML
     private void initialize() {
@@ -35,11 +44,47 @@ public class MainController {
         studentData.addAll(StudentManagement.getStudents());
         studentTable.setItems(studentData);
     }
+        @FXML
+    private void handleAddStudentButtonAction(ActionEvent event) {
+        try {
+            // Load the FXML file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/studentmanagementsystem/AddStudent.fxml"));
 
-    @FXML
-    private void handleAddStudentButtonAction() {
-        // Code to handle adding a new student
+            Parent root = loader.load();
+
+            AddStudentController controller = loader.getController();
+            controller.setMainController(this);
+
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Add Student");
+            dialogStage.initModality(Modality.WINDOW_MODAL);  // This line makes the dialog modal
+            dialogStage.initOwner(primaryStage);
+            dialogStage.setScene(new Scene(root));
+
+// Set the dialog stage in the controller
+            controller.setDialogStage(dialogStage);
+
+            // Show the dialog
+            dialogStage.showAndWait();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
+
+    public void addStudent(Student student) {
+        studentData.add(student);
+    }
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
+
+
+
 
     @FXML
     private void handleUpdateStudentButtonAction() {

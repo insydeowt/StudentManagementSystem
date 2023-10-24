@@ -1,14 +1,21 @@
 package com.example.studentmanagementsystem;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MainApp extends Application {
+public class MainApp extends Application implements EventHandler<ActionEvent> {
 
     private Stage primaryStage;
+
+    @Override
+    public void handle(ActionEvent actionEvent) {
+
+    }
 
     @Override
     public void start(Stage primaryStage) {
@@ -28,6 +35,8 @@ public class MainApp extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
     }
 
     public static void main(String[] args) {

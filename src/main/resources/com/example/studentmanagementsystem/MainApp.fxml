@@ -13,7 +13,7 @@
         </columns>
     </TableView>
     <HBox layoutX="20" layoutY="430" spacing="10">
-        <Button text="Add Student" onAction="#handleAddStudentButtonAction" />
+        <Button text="Add Student" onAction="#handleAddStudentButtonAction" fx:id="addStudentButton" />
         <Button text="Update Student" onAction="#handleUpdateStudentButtonAction" />
         <Button text="View Student Details" onAction="#handleViewStudentDetailsButtonAction" />
     </HBox>
