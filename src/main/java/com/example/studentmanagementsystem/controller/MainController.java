@@ -182,7 +182,16 @@ public class MainController {
         }
     }
 
-
+    @FXML
+    private void handleDeleteStudentAction() {
+        int selectedIndex = studentTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            studentTable.getItems().remove(selectedIndex);
+        } else {
+            // No student selected, display a warning dialog
+            // ... you can use an Alert for this ...
+        }
+    }
     @FXML
     private void handleViewStudentDetailsButtonAction() {
         // Code to handle viewing student details

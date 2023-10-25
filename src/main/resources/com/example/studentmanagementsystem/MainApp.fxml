@@ -28,5 +28,6 @@
         <Button text="Add Student" onAction="#handleAddStudentButtonAction" fx:id="addStudentButton" />
         <Button text="Update Student" onAction="#handleUpdateStudentButtonAction" />
         <Button text="View Student Details" onAction="#handleViewStudentDetailsButtonAction" />
+        <Button text="Delete Student" onAction="#handleDeleteStudentAction"/>
     </HBox>
 </AnchorPane>
