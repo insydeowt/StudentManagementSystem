@@ -26,7 +26,7 @@ public class UpdateStudentController {
     public void setSelectedStudent(Student student) {
         this.selectedStudent = student;
         // Pre-fill the fields:
-        nameField.setText(student.getName());
+        nameField.setText(student.name);
         idField.setText(student.getID());
         ageField.setText(String.valueOf(student.getAge()));
     }

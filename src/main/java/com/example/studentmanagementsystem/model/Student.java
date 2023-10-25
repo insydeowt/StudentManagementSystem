@@ -4,7 +4,7 @@ import javafx.beans.property.*;
 // Student class definition
 public class Student {
     // private instance variables
-    private String name;
+    public String name;
     private String ID;
     private int age;
     private String grade;
@@ -18,7 +18,12 @@ public class Student {
     }
 
     // public get and set methods
-    public String getName() { return name; }
+    @Override
+    public String toString() {
+        return this.name;  // or return this.getStudentName(); depending on your implementation
+    }
+
+
     public void setName(String name) { this.name = name; }
 
     public String getID() { return ID; }

@@ -26,7 +26,11 @@ public class Course {
     }
 
     // Getters and Setters
-    public String getCourseName() { return courseName; }
+    @Override
+    public String toString() {
+        return this.courseName;  // or return this.getCourseName(); depending on your implementation
+    }
+
     public void setCourseName(String courseName) { this.courseName = courseName; }
 
     public String getCourseID() { return courseID; }
