@@ -151,8 +151,28 @@ public class MainController {
 
     @FXML
     private void handleUpdateStudentButtonAction() {
-        // Code to handle updating a student
+        Student selectedStudent = studentTable.getSelectionModel().getSelectedItem();
+        if (selectedStudent != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/studentmanagementsystem/UpdateStudent.fxml"));
+                Parent root = loader.load();
+
+                UpdateStudentController controller = loader.getController();
+                controller.setMainController(this);
+                controller.setSelectedStudent(selectedStudent);
+
+                Stage stage = new Stage();
+                stage.setTitle("Update Student");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            // No student selected. Show an alert or message.
+        }
     }
+
 
     @FXML
     private void handleViewStudentDetailsButtonAction() {
