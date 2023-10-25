@@ -83,8 +83,54 @@ public class MainController {
     }
 
 
+    @FXML
+    private void handleAddCourseAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/studentmanagementsystem/AddCourse.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Add Course");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
+        @FXML
+        private void handleEnrollStudentAction(ActionEvent event) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/studentmanagementsystem/EnrollStudent.fxml"));
+                Parent root = loader.load();
+
+                Stage stage = new Stage();
+                stage.setTitle("Enroll Student"); // Fixed the missing quotation mark
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @FXML
+        private void handleAssignGradeAction(ActionEvent event) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/studentmanagementsystem/AssignGrade.fxml"));
+                Parent root = loader.load();
+
+                Stage stage = new Stage();
+                stage.setTitle("Assign Grade"); // Fixed the title
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
     @FXML
     private void handleUpdateStudentButtonAction() {

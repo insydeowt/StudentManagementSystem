@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="150.0" prefWidth="300.0" spacing="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.studentmanagementsystem.controller.AddCourseController">
+    <GridPane hgap="10" vgap="10">
+        <Label text="Course Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="courseNameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Course ID:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="courseIDField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+    </GridPane>
+
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Button onAction="#handleSave" text="Save" />
+        <Button onAction="#handleCancel" text="Cancel" />
+    </HBox>
+</VBox>
