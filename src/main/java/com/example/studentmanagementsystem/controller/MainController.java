@@ -94,6 +94,15 @@ public class MainController {
     public void addStudent(Student student) {
         studentData.add(student);
     }
+    public void updateStudent(Student student) {
+        // Assuming studentData is your ObservableList
+        int index = studentData.indexOf(student);
+        if (index != -1) {
+            studentData.set(index, student); // Update student in the list
+            studentTable.refresh();         // Refresh the table
+        }
+    }
+
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;

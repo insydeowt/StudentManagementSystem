@@ -13,7 +13,8 @@
         <Label text="ID:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
         <TextField fx:id="idField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-        <!-- Add more fields as needed -->
+        <Label text="Age:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id="ageField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
     </GridPane>
     <HBox spacing="10">

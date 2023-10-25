@@ -12,7 +12,9 @@ public class UpdateStudentController {
     private TextField nameField;
     @FXML
     private TextField idField;
-    // ... other fields ...
+    @FXML
+    private TextField ageField;
+
 
     private Student selectedStudent;
     private MainController mainController;
@@ -26,7 +28,7 @@ public class UpdateStudentController {
         // Pre-fill the fields:
         nameField.setText(student.getName());
         idField.setText(student.getID());
-        // ... fill other fields ...
+        ageField.setText(String.valueOf(student.getAge()));
     }
 
     @FXML
@@ -34,12 +36,22 @@ public class UpdateStudentController {
         // Get updated data from fields:
         String updatedName = nameField.getText();
         String updatedId = idField.getText();
-        // ... get other fields ...
+        int updatedAge = Integer.parseInt(ageField.getText());
 
         // Update the student data:
         selectedStudent.setName(updatedName);
         selectedStudent.setID(updatedId);
-        // ... update other attributes ...
+
+
+
+        // Update the student's age:
+        selectedStudent.setAge(updatedAge);
+
+        // Close the update form:
+        ((Stage) nameField.getScene().getWindow()).close();
+
+        // Update the student data in the main controller and refresh the table:
+        mainController.updateStudent(selectedStudent);
 
         // Close the update form:
         ((Stage) nameField.getScene().getWindow()).close();
