@@ -1,5 +1,7 @@
 package com.example.studentmanagementsystem.controller;
 
+import com.example.studentmanagementsystem.model.Course;
+import com.example.studentmanagementsystem.model.CourseManagement;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -19,7 +21,8 @@ public class AddCourseController {
         String courseName = courseNameField.getText();
         String courseID = courseIDField.getText();
 
-        // TODO: Add the course to the system using courseName and courseID
+        // Add the course using CourseManagement
+        CourseManagement.addCourse(courseName, courseID);
 
         if (dialogStage != null) {
             dialogStage.close();
@@ -31,5 +34,9 @@ public class AddCourseController {
     @FXML
     private void handleCancel() {
         dialogStage.close();
+    }
+
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
     }
 }

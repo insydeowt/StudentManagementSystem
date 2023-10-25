@@ -9,6 +9,7 @@
         <Menu text="Courses">
             <MenuItem text="Add Course" onAction="#handleAddCourseAction"/>
             <MenuItem text="Enroll Student" onAction="#handleEnrollStudentAction"/>
+            <MenuItem text="View Courses" onAction="#handleViewCoursesAction"/>
         </Menu>
         <Menu text="Grades">
             <MenuItem text="Assign Grade" onAction="#handleAssignGradeAction"/>
