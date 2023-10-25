@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox spacing="20" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.studentmanagementsystem.controller.AssignGradeController"
+      prefHeight="300" prefWidth="400">
+
+    <!-- Title -->
+    <Label text="Assign Grade" style="-fx-font-size: 20px;" />
+
+    <!-- ComboBox for Students -->
+    <ComboBox fx:id="studentComboBox" promptText="Select Student" prefWidth="300"/>
+
+    <!-- ComboBox for Courses -->
+    <ComboBox fx:id="courseComboBox" promptText="Select Course" prefWidth="300"/>
+
+    <!-- TextField for Grade -->
+    <TextField fx:id="gradeField" promptText="Enter Grade" prefWidth="300"/>
+
+    <!-- Submit Button -->
+    <Button text="Submit Grade" onAction="#handleSubmit" prefWidth="150"/>
+
+</VBox>

@@ -1,6 +1,10 @@
 package com.example.studentmanagementsystem.model;
 import javafx.beans.property.*;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 // Student class definition
 public class Student {
     // private instance variables
@@ -9,12 +13,16 @@ public class Student {
     private int age;
     private String grade;
 
+    private Map<Course, String> courseGrades;
+
+
     // public constructor
     public Student(String name, String ID, int age, String grade) {
         this.name = name;
         this.ID = ID;
         this.age = age;
         this.grade = grade;
+        this.courseGrades = new HashMap<>();
     }
 
     // public get and set methods
@@ -22,7 +30,17 @@ public class Student {
     public String toString() {
         return this.name;  // or return this.getStudentName(); depending on your implementation
     }
+    public void setGradeForCourse(Course course, String grade) {
+        this.courseGrades.put(course, grade);
+    }
 
+    public String getGradeForCourse(Course course) {
+        return this.courseGrades.getOrDefault(course, "N/A");  // N/A if no grade is set for the course
+    }
+
+    public Map<Course, String> getAllGrades() {
+        return Collections.unmodifiableMap(this.courseGrades);
+    }
 
     public void setName(String name) { this.name = name; }
 
