@@ -2,12 +2,24 @@ package com.example.studentmanagementsystem.model;
 
 import javafx.beans.property.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Course {
     // Instance variables
     private String courseName;
     private String courseID;
+    private List<Student> enrolledStudents = new ArrayList<>();
 
     // Constructor
+    public List<Student> getEnrolledStudents() {
+        return enrolledStudents;
+    }
+    public void enrollStudent(Student student) {
+        if (!enrolledStudents.contains(student)) {
+            enrolledStudents.add(student);
+        }
+    }
     public Course(String courseName, String courseID) {
         this.courseName = courseName;
         this.courseID = courseID;

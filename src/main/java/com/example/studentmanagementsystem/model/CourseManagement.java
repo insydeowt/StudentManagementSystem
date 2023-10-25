@@ -28,4 +28,9 @@ public class CourseManagement {
     public static ObservableList<Course> getCourses() {
         return FXCollections.observableArrayList(courses);
     }
+
+    // Method to enroll a student in a course
+    public static void enrollStudentInCourse(Student student, Course course) {
+        course.enrollStudent(student);
+    }
 }

@@ -178,7 +178,8 @@ public class MainController {
                 e.printStackTrace();
             }
         } else {
-            // No student selected. Show an alert or message.
+// No student selected, display a warning dialog
+            // ... you can use an Alert for this ...
         }
     }
 
