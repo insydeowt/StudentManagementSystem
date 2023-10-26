@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="30" alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.studentmanagementsystem.controller.EnrollStudentController">
+
+<!-- Dropdown to select a student -->
+    <ComboBox fx:id="studentComboBox" promptText="Select a Student">
+        <!-- Student items will be populated from the controller -->
+    </ComboBox>
+
+    <!-- Dropdown to select a course -->
+    <ComboBox fx:id="courseComboBox" promptText="Select a Course">
+        <!-- Course items will be populated from the controller -->
+    </ComboBox>
+
+    <!-- Button to enroll the student in the selected course -->
+    <Button text="Enroll" onAction="#handleEnroll"/>
+
+</VBox>

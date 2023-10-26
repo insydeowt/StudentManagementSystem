@@ -1,5 +1,6 @@
 package com.example.studentmanagementsystem.controller;
 
+import com.example.studentmanagementsystem.model.CourseManagement;
 import com.example.studentmanagementsystem.model.Student;
 import com.example.studentmanagementsystem.model.StudentManagement;
 import javafx.collections.FXCollections;
@@ -15,6 +16,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import com.example.studentmanagementsystem.model.Course;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 public class MainController {
 
@@ -31,6 +36,15 @@ public class MainController {
 
     private ObservableList<Student> studentData = FXCollections.observableArrayList();
     private Stage primaryStage;
+    @FXML
+    private TableView<Course> courseTable;
+    @FXML
+    private TableColumn<Course, String> courseNameColumn;
+    @FXML
+    private TableColumn<Course, String> courseIDColumn;
+
+    private ObservableList<Course> courseData = FXCollections.observableArrayList();
+
 
     @FXML
     private void initialize() {
@@ -43,8 +57,10 @@ public class MainController {
         // Load initial data
         studentData.addAll(StudentManagement.getStudents());
         studentTable.setItems(studentData);
+
     }
-        @FXML
+
+    @FXML
     private void handleAddStudentButtonAction(ActionEvent event) {
         try {
             // Load the FXML file
@@ -78,21 +94,122 @@ public class MainController {
     public void addStudent(Student student) {
         studentData.add(student);
     }
+    public void updateStudent(Student student) {
+        // Assuming studentData is your ObservableList
+        int index = studentData.indexOf(student);
+        if (index != -1) {
+            studentData.set(index, student); // Update student in the list
+            studentTable.refresh();         // Refresh the table
+        }
+    }
+
+
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
 
+    @FXML
+    private void handleAddCourseAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/studentmanagementsystem/AddCourse.fxml"));
+            Parent root = loader.load();
 
+            Stage stage = new Stage();
+            stage.setTitle("Add Course");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @FXML
-    private void handleUpdateStudentButtonAction() {
-        // Code to handle updating a student
+    private void handleEnrollStudentAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/studentmanagementsystem/EnrollStudent.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Enroll Student"); // Fixed the missing quotation mark
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
+    private void handleAssignGradeAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/studentmanagementsystem/AssignGrade.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Assign Grade"); // Fixed the title
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleUpdateStudentButtonAction() {
+        Student selectedStudent = studentTable.getSelectionModel().getSelectedItem();
+        if (selectedStudent != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/studentmanagementsystem/UpdateStudent.fxml"));
+                Parent root = loader.load();
+
+                UpdateStudentController controller = loader.getController();
+                controller.setMainController(this);
+                controller.setSelectedStudent(selectedStudent);
+
+                Stage stage = new Stage();
+                stage.setTitle("Update Student");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+// No student selected, display a warning dialog
+            // ... you can use an Alert for this ...
+        }
+    }
+
+    @FXML
+    private void handleDeleteStudentAction() {
+        int selectedIndex = studentTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            studentTable.getItems().remove(selectedIndex);
+        } else {
+            // No student selected, display a warning dialog
+            // ... you can use an Alert for this ...
+        }
+    }
+    @FXML
     private void handleViewStudentDetailsButtonAction() {
         // Code to handle viewing student details
+    }
+
+    public void handleViewCoursesAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/studentmanagementsystem/ViewCourses.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("View Courses");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

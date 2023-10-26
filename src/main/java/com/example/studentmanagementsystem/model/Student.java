@@ -1,13 +1,20 @@
 package com.example.studentmanagementsystem.model;
 import javafx.beans.property.*;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 // Student class definition
 public class Student {
     // private instance variables
-    private String name;
+    public String name;
     private String ID;
     private int age;
     private String grade;
+
+    private Map<Course, String> courseGrades;
+
 
     // public constructor
     public Student(String name, String ID, int age, String grade) {
@@ -15,11 +22,31 @@ public class Student {
         this.ID = ID;
         this.age = age;
         this.grade = grade;
+        this.courseGrades = new HashMap<>();
     }
 
     // public get and set methods
-    public String getName() { return name; }
+    @Override
+    public String toString() {
+        return this.name;  // or return this.getStudentName(); depending on your implementation
+    }
+    public void setGradeForCourse(Course course, String grade) {
+        this.courseGrades.put(course, grade);
+    }
+
+    public String getGradeForCourse(Course course) {
+        return this.courseGrades.getOrDefault(course, "N/A");  // N/A if no grade is set for the course
+    }
+
+    public Map<Course, String> getAllGrades() {
+        return Collections.unmodifiableMap(this.courseGrades);
+    }
+
+
     public void setName(String name) { this.name = name; }
+    public String getName() {
+        return this.name;
+    }
 
     public String getID() { return ID; }
     public void setID(String ID) { this.ID = ID; }
@@ -44,5 +71,15 @@ public class Student {
     public StringProperty gradeProperty() {
         return new SimpleStringProperty(grade);
     }
+    public void enrollInCourse(Course course) {
+        // Assuming that you want to add the course to the courseGrades map with a default grade (e.g., "N/A")
+        if (!this.courseGrades.containsKey(course)) {
+            this.courseGrades.put(course, "N/A");
+        } else {
+            // Optional: Handle the case where the student is already enrolled in the course
+            System.out.println("Student is already enrolled in this course.");
+        }
+    }
+
 }
 

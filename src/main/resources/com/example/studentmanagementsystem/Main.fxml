@@ -3,7 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentmanagementsystem.controller.StudentController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.studentmanagementsystem.controller.MainController">
+
     <VBox>
         <Button text="Add Student" onAction="#handleAddStudent" fx:id="addStudentButton"/>
         <Button text="Update Student" onAction="#handleUpdateStudent" fx:id="updateStudentButton"/>
