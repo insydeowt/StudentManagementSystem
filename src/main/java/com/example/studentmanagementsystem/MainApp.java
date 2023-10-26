@@ -8,6 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * The type Main app.
+ */
 public class MainApp extends Application implements EventHandler<ActionEvent> {
 
     private Stage primaryStage;
@@ -39,6 +42,11 @@ public class MainApp extends Application implements EventHandler<ActionEvent> {
 
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }

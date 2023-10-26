@@ -7,6 +7,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 
+/**
+ * The type Update student controller.
+ */
 public class UpdateStudentController {
     @FXML
     private TextField nameField;
@@ -18,10 +21,20 @@ public class UpdateStudentController {
     private Student selectedStudent;
     private MainController mainController;
 
+    /**
+     * Sets main controller.
+     *
+     * @param mainController the main controller
+     */
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
+    /**
+     * Sets selected student.
+     *
+     * @param student the student
+     */
     public void setSelectedStudent(Student student) {
         this.selectedStudent = student;
         // Pre-fill the fields:
@@ -30,6 +43,9 @@ public class UpdateStudentController {
         ageField.setText(String.valueOf(student.getAge()));
     }
 
+    /**
+     * Handle update.
+     */
     @FXML
     public void handleUpdate() {
         // Get updated data from fields:
@@ -66,6 +82,9 @@ public class UpdateStudentController {
         }
     }
 
+    /**
+     * Handle cancel.
+     */
     @FXML
     public void handleCancel() {
         // Close the update form without saving changes:

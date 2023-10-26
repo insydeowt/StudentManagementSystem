@@ -10,6 +10,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
+/**
+ * The type Assign grade controller.
+ */
 public class AssignGradeController {
 
     @FXML
@@ -25,6 +28,9 @@ public class AssignGradeController {
         courseComboBox.setItems(FXCollections.observableArrayList(CourseManagement.getCourses()));
     }
 
+    /**
+     * Handle submit.
+     */
     @FXML
     public void handleSubmit() {
         Student selectedStudent = studentComboBox.getSelectionModel().getSelectedItem();

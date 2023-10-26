@@ -5,6 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+/**
+ * The type Student details controller.
+ */
 public class StudentDetailsController {
 
     @FXML
@@ -12,6 +15,11 @@ public class StudentDetailsController {
 
     private Stage dialogStage;
 
+    /**
+     * Sets student details.
+     *
+     * @param student the student
+     */
     public void setStudentDetails(Student student) {
         nameLabel.setText("Name: " + student.getName());
         idLabel.setText("ID: " + student.getID());
@@ -27,10 +35,20 @@ public class StudentDetailsController {
         dialogStage.close();
     }
 
+    /**
+     * Sets dialog stage.
+     *
+     * @param dialogStage the dialog stage
+     */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
 
+    /**
+     * Update grade table.
+     *
+     * @param selectedStudent the selected student
+     */
     public void updateGradeTable(Student selectedStudent) {
         // update the label with the new grade
         gradesLabel.setText("Grades: " + selectedStudent.getAllGrades().toString());

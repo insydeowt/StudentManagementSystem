@@ -21,6 +21,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+/**
+ * The type Main controller.
+ */
 public class MainController {
 
     @FXML
@@ -91,9 +94,20 @@ public class MainController {
 
     }
 
+    /**
+     * Add student.
+     *
+     * @param student the student
+     */
     public void addStudent(Student student) {
         studentData.add(student);
     }
+
+    /**
+     * Update student.
+     *
+     * @param student the student
+     */
     public void updateStudent(Student student) {
         // Assuming studentData is your ObservableList
         int index = studentData.indexOf(student);
@@ -104,6 +118,11 @@ public class MainController {
     }
 
 
+    /**
+     * Sets primary stage.
+     *
+     * @param primaryStage the primary stage
+     */
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
@@ -198,6 +217,11 @@ public class MainController {
         // Code to handle viewing student details
     }
 
+    /**
+     * Handle view courses action.
+     *
+     * @param event the event
+     */
     public void handleViewCoursesAction(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/studentmanagementsystem/ViewCourses.fxml"));

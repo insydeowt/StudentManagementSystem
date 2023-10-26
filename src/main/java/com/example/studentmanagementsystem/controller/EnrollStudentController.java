@@ -10,6 +10,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
+/**
+ * The type Enroll student controller.
+ */
 public class EnrollStudentController {
 
     @FXML
@@ -18,6 +21,9 @@ public class EnrollStudentController {
     @FXML
     private ComboBox<Course> courseComboBox;
 
+    /**
+     * Initialize.
+     */
     @FXML
     public void initialize() {
         // Populate the studentComboBox with the list of students
@@ -27,6 +33,9 @@ public class EnrollStudentController {
         courseComboBox.setItems(FXCollections.observableArrayList(CourseManagement.getCourses()));
     }
 
+    /**
+     * Handle enroll.
+     */
     @FXML
     public void handleEnroll() {
         // logic to enroll the selected student in the selected course

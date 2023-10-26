@@ -7,6 +7,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * The type Add student controller.
+ */
 public class AddStudentController {
 
     @FXML
@@ -24,6 +27,11 @@ public class AddStudentController {
     private Stage dialogStage;
     private MainController mainController;
 
+    /**
+     * Sets main controller.
+     *
+     * @param mainController the main controller
+     */
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
@@ -79,6 +87,11 @@ public class AddStudentController {
         }
     }
 
+    /**
+     * Sets dialog stage.
+     *
+     * @param dialogStage the dialog stage
+     */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
