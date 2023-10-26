@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.studentmanagementsystem.controller.StudentDetailsController"
+            prefHeight="400.0" prefWidth="600.0">
+    <VBox padding="10">
+        <spacing>10</spacing>
+        <alignment>CENTER</alignment>
+        <Label fx:id="nameLabel"/>
+        <Label fx:id="idLabel"/>
+        <Label fx:id="ageLabel"/>
+        <Label fx:id="gradesLabel"/>
+        <Label fx:id="coursesLabel"/>
+        <Button text="Close" onAction="#handleClose"/>
+    </VBox>
+
+</AnchorPane>

@@ -42,7 +42,11 @@ public class Student {
         return Collections.unmodifiableMap(this.courseGrades);
     }
 
+
     public void setName(String name) { this.name = name; }
+    public String getName() {
+        return this.name;
+    }
 
     public String getID() { return ID; }
     public void setID(String ID) { this.ID = ID; }
@@ -67,5 +71,15 @@ public class Student {
     public StringProperty gradeProperty() {
         return new SimpleStringProperty(grade);
     }
+    public void enrollInCourse(Course course) {
+        // Assuming that you want to add the course to the courseGrades map with a default grade (e.g., "N/A")
+        if (!this.courseGrades.containsKey(course)) {
+            this.courseGrades.put(course, "N/A");
+        } else {
+            // Optional: Handle the case where the student is already enrolled in the course
+            System.out.println("Student is already enrolled in this course.");
+        }
+    }
+
 }
 

@@ -6,6 +6,7 @@ import com.example.studentmanagementsystem.model.Student;
 import com.example.studentmanagementsystem.model.StudentManagement;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
@@ -32,7 +33,17 @@ public class AssignGradeController {
 
         if (selectedStudent != null && selectedCourse != null && !grade.isEmpty()) {
             selectedStudent.setGradeForCourse(selectedCourse, grade);
-            // Optionally: Show a confirmation message
+            showAlert(Alert.AlertType.INFORMATION, "Success", "Grade has been successfully assigned.");
+        } else {
+            showAlert(Alert.AlertType.ERROR, "Error", "Failed to assign grade. Please ensure all fields are correctly filled.");
         }
+    }
+
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);  // No header text
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
